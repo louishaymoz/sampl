@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Button, TextInput, FlatList, Image, TouchableOpacity} from 'react-native';
-import { ScrollView } from 'react-native-web';
+import { ScrollView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CardScreen from './screens/CardScreen';
@@ -61,12 +61,12 @@ function HomeScreen({ navigation }) {
       />
 
       </View>
-      <View style={{flex: 1, maxWidth: 450, flexDirection: 'row' , flexWrap: 'wrap', alignSelf: 'center'}}>
+      <View style={{flex: 1, maxWidth: 400, flexDirection: 'row' , flexWrap: 'wrap', alignSelf: 'center'}}>
         {blocks.map(item => {
           return(
-            <View key={item.id} style={{width: 200, padding: 20, backgroundColor: '#ffc2c2', borderRadius: 10, alignItems: 'center', margin: 10}}>
+            <View key={item.id} style={{width: 175, padding: 20, backgroundColor: '#ffc2c2', borderRadius: 10, alignItems: 'center', margin: 10}}>
               <TouchableOpacity onPress={() => navigation.navigate('CardScreen', { card: item })}>
-                <Image source={{uri: item.imageUrl}} style={{width: 150, height: 150, borderRadius: 10,marginBottom: 15}}/>
+                <Image source={{uri: item.imageUrl}} style={{width: 120, height: 120, borderRadius: 10,marginBottom: 15}}/>
                 <Text style={{fontSize: 18, marginBottom: 15}}>{item.text}</Text>
               </TouchableOpacity>
               <Button onPress={() => onPressButton(item.text)} title='+/-' color='#ff0000' />
